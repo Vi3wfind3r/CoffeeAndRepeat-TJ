@@ -15,7 +15,7 @@ if(process.env.NODE_ENV != 'production') {
 
 const app = express();
 
-const database = {
+const database = { 
 };
 
 app.use(passport.initialize());
@@ -56,7 +56,7 @@ passport.use(
 );
 
 app.get('/api/auth/google',
-    passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+    passport.authenticate('google', {scope: ['profile']}));
 
 app.get('/api/auth/google/callback',
     passport.authenticate('google', {

@@ -44,7 +44,17 @@ export default class QuestionPage extends React.Component {
                     <ul className="answer-section">
                         <label>Answer</label>
                         <input className="answer-input" placeholder="E.g. coffee" type="text"></input>
+                        <button className="submit-answer">Submit</button>
                     </ul>
+                </div>
+                <div className="correct-answer">
+                    <p>Correct!</p>
+                    <button className="next-question">Next Question</button>
+                </div>
+                <div className="incorrect-answer">
+                    <p>Incorrect</p>
+                    <button className="show-answer">Show Answer</button>
+                    <button className="next-question">Next Question</button>
                 </div>
             </div>
         );

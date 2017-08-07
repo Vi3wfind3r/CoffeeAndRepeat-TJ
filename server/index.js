@@ -15,7 +15,7 @@ if(process.env.NODE_ENV != 'production') {
 
 const app = express();
 
-const database = {
+const database = { 
 };
 
 app.use(passport.initialize());

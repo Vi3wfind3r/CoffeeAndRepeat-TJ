@@ -3,6 +3,9 @@ const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
+const mongoose = require('mongoose');
+
+const {User} = require('./models');
 
 let secret = {
   CLIENT_ID: process.env.CLIENT_ID,
@@ -14,6 +17,7 @@ if(process.env.NODE_ENV != 'production') {
 }
 
 const app = express();
+
 
 const database = { 
 };
@@ -27,7 +31,13 @@ passport.use(
       callbackURL: '/api/auth/google/callback'
     },
     (accessToken, refreshToken, profile, cb) => {
-        // console.log('this is the profile!', profile);
+      console.log('this is the profile################!', profile.id);
+      const userObj = {
+        id: profile.id,
+        name: profile.name.givenName
+      };
+      console.log(userObj);
+      User.create(userObj);
         // Job 1: Set up Mongo/Mongoose, create a User model which store the
         // google id, and the access token
         // Job 2: Update this callback to either update or create the user
@@ -53,6 +63,7 @@ passport.use(
         }
     )
 );
+
 
 app.get('/api/auth/google',
     passport.authenticate('google', {scope: ['profile']}));
@@ -81,10 +92,14 @@ app.get('/api/auth/logout', (req, res) => {
 
 app.get('/api/me',
     passport.authenticate('bearer', {session: false}),
-    (req, res) => res.json({
-      googleId: req.user.googleId
-    })
-);
+    (req, res) => {
+      console.log(req.user);
+      User.find()
+      .then(user => {
+        console.log(user);
+      });
+});
+
 
 app.get('/api/questions',
     passport.authenticate('bearer', {session: false}),
@@ -102,11 +117,18 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 });
 
 let server;
-function runServer(port=3001) {
+function runServer(port=4000) {
   return new Promise((resolve, reject) => {
-    server = app.listen(port, () => {
-      resolve();
-    }).on('error', reject);
+    mongoose.connect(secret.DATABASE_URL, err => {
+      if (err) {
+        return reject(err);
+      }
+
+      server = app.listen(port, () => {
+        console.log(`Your app is listening on ${port}`);
+        resolve();
+      }).on('error', reject);
+    });
   });
 }
 
@@ -114,8 +136,8 @@ function closeServer() {
   return new Promise((resolve, reject) => {
     server.close(err => {
       if (err) {
-          return reject(err);
-        }
+        return reject(err);
+      }
       resolve();
     });
   });

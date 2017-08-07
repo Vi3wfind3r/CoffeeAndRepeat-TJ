@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Cookies from 'js-cookie';
 import Navbar from './navbar';
+import './question-page.css';
 
 export default class QuestionPage extends React.Component {
     constructor(props) {
@@ -36,9 +37,15 @@ export default class QuestionPage extends React.Component {
         return (
             <div>
                 <Navbar />
-                <ul className="question-list">
-                    {questions}
-                </ul>
+                <div className="question-box">
+                    <ul className="question-list">
+                        {questions}
+                    </ul>
+                    <ul className="answer-section">
+                        <label>Answer</label>
+                        <input className="answer-input" placeholder="E.g. coffee" type="text"></input>
+                    </ul>
+                </div>
             </div>
         );
     }

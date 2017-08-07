@@ -1,0 +1,14 @@
+.question-list {
+  list-style: none;
+}
+
+.question-box {
+  display: flex;
+  justify-content: center;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Cookies from 'js-cookie';
+import Navbar from './navbar';
 
 export default class QuestionPage extends React.Component {
     constructor(props) {
@@ -33,9 +34,12 @@ export default class QuestionPage extends React.Component {
         );
 
         return (
-            <ul className="question-list">
-                {questions}
-            </ul>
+            <div>
+                <Navbar />
+                <ul className="question-list">
+                    {questions}
+                </ul>
+            </div>
         );
     }
 }

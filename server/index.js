@@ -34,7 +34,6 @@ passport.use(
         // so it contains the correct access token
       const user = database[accessToken] = {
         googleId: profile.id,
-        email: profile.emails[0].value,
         accessToken: accessToken
       };
       return cb(null, user);

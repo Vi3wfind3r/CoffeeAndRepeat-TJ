@@ -7,7 +7,7 @@ export default class QuestionPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            questions: []
+            questions: []//will need to update to linkedlist
         };
     }
 

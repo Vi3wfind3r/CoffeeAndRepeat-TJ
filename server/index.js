@@ -5,7 +5,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 
-const {Users} = require('./models');
+const {Users, Questions} = require('./models');
 
 let secret = {
   CLIENT_ID: process.env.CLIENT_ID,
@@ -116,6 +116,10 @@ app.get('/api/questions',
     passport.authenticate('bearer', {session: false}),
     (req, res) => res.json(['Question 1', 'Question 2'])
 );
+
+app.post('/api/questions', (req, res) => {
+
+});
 
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));

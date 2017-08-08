@@ -5,7 +5,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 
-const {User} = require('./models');
+const {Users} = require('./models');
 
 let secret = {
   CLIENT_ID: process.env.CLIENT_ID,
@@ -13,9 +13,9 @@ let secret = {
   DATABASE_URL: process.env.DATABASE_URL
 };
 
-// if(process.env.NODE_ENV != 'production') {
-//   secret = require('./secret');
-// }
+if(process.env.NODE_ENV != 'production') {
+  secret = require('./secret');
+}
 
 const app = express();
 
@@ -32,21 +32,17 @@ passport.use(
       callbackURL: '/api/auth/google/callback'
     },
     (accessToken, refreshToken, profile, cb) => {
-      console.log('this is the profile################!', profile.id);
-      const userObj = {
-        id: profile.id,
-        name: profile.name.givenName
-      };
-      console.log(userObj);
-      User.create(userObj);
         // Job 1: Set up Mongo/Mongoose, create a User model which store the
         // google id, and the access token
         // Job 2: Update this callback to either update or create the user
         // so it contains the correct access token
       const user = database[accessToken] = {
         googleId: profile.id,
-        accessToken: accessToken
+        accessToken: accessToken,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName
       };
+
       return cb(null, user);
     }
 ));
@@ -67,7 +63,7 @@ passport.use(
 
 
 app.get('/api/auth/google',
-    passport.authenticate('google', {scope: ['profile']}));
+    passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']}));
 
 app.get('/api/auth/google/callback',
     passport.authenticate('google', {
@@ -78,6 +74,15 @@ app.get('/api/auth/google/callback',
     (req, res) => {
       res.cookie('accessToken', req.user.accessToken, {expires: 0});
       res.redirect('/');
+      console.log('####',Users.findOne({id: req.user.googleId}));
+      if(Users.find({id: req.user.googleId}).length === 0){
+        Users.findOneAndUpdate({id: req.user.googleId},
+          {$set: {
+          firstName: req.user.firstName,
+          lastName: req.user.lastName,
+          id: req.user.googleId
+        }});
+      }
     }
 );
 
@@ -95,7 +100,7 @@ app.get('/api/me',
     passport.authenticate('bearer', {session: false}),
     (req, res) => {
       console.log(req.user);
-      User.find()
+      Users.find()
       .then(user => {
         console.log(user);
       });

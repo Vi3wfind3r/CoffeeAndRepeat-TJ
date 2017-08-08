@@ -18,15 +18,17 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
   text-shadow: 5px 1px 1px #ce5e40;
+  margin-bottom: 0px;
 }
 
 .app-name {
   font-size: 26px;
-  text-shadow: 5px 1px 1px #ce5e40;
+  text-shadow: 3px 1px 1px #ce5e40;
 }
 
 .app-description {
   text-shadow: 1px 1px 1px #ce5e40;
+  margin-bottom: 48px;
 }
 
 .login-button {

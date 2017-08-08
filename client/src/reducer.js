@@ -1,7 +1,8 @@
 import * as actions from './actions';
 
 const initialState = {
-  questions:[]
+  questions:[],
+  currentUser: null
 };
 
 export default (state=initialState, action)  => {

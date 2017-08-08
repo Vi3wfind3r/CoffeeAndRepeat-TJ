@@ -102,7 +102,11 @@ app.get('/api/me',
     (req, res) => {
       Users.find()
       .then(user => {
-        console.log(user);
+        res.status(200).send(user);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(204).send(err);
       });
     });
 

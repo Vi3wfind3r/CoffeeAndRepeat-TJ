@@ -31,10 +31,12 @@ class App extends React.Component {
                     throw new Error(res.statusText);
                 }
                 return res.json();
-            }).then(currentUser =>
+            }).then(currentUser =>{
+                console.log(currentUser);
                 this.setState({
                     currentUser
                 })
+            }
             );
         }
     }

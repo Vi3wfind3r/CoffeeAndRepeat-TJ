@@ -100,8 +100,9 @@ app.get('/api/auth/logout', (req, res) => {
 app.get('/api/me',
     passport.authenticate('bearer', {session: false}),
     (req, res) => {
-      Users.find()
+      Users.findOne({token: req.user.token})
       .then(user => {
+        console.log(user);
         res.status(200).send(user);
       })
       .catch(err => {

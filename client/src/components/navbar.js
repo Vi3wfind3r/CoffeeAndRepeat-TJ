@@ -9,9 +9,7 @@ export default class Navbar extends React.Component {
       <nav>
         <ul className='navbar'>
           <li>Hello !</li>
-          <Link to='/api/auth/logout'>
-            <li>Logout</li>
-          </Link>
+            <li><a href="/auth/google/logout">Logout</a></li>
         </ul>
       </nav>
     );

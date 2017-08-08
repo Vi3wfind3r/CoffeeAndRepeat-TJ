@@ -2,6 +2,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+   font-family: 'Lato', sans-serif;
 }
 
+.title-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  background: #F06449;
+  width: 100%;
+}
+
+.company {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  text-shadow: 5px 1px 1px #ce5e40;
+  margin-bottom: 0px;
+}
+
+.app-name {
+  font-size: 26px;
+  text-shadow: 3px 1px 1px #ce5e40;
+}
+
+.app-description {
+  text-shadow: 1px 1px 1px #ce5e40;
+  margin-bottom: 48px;
+}
+
+.login-button {
+  margin-top: 100px;
+  box-shadow: 5px 25px 20px lightgrey;
+}
+
+.login-button > a {
+  background: #5BC3EB;
+  border-radius: 25%;
+  padding: 15px;
+  text-decoration: none;
+  color: #ffffff;
+}
 

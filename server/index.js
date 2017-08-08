@@ -82,7 +82,8 @@ app.get('/api/auth/google/callback',
           lastName: req.user.lastName,
           id: req.user.googleId,
           token: req.user.accessToken
-        }}, {upsert: true, new: true}).then(user => {
+        }}, {upsert: true, new: true})
+        .then(user => {
           res.cookie('accessToken', req.user.accessToken, {expires: 0});
           res.redirect('/');
         });
@@ -158,4 +159,5 @@ if (require.main === module) {
 
 module.exports = {
   app, runServer, closeServer
+  
 };

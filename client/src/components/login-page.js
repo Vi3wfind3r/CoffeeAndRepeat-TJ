@@ -9,7 +9,7 @@ export default class LoginPage extends React.Component {
                 <div className='title-box'>
                     <p className='company'>FrenchX</p>
                     <p className='app-name'>Coffee & Repeat</p>
-                    <p className='app-description'>Learning Coffee and its nuances through repetition!</p>
+                    <p className='app-description'>Learning about coffee and its nuances through repetition!</p>
                 </div>
                 <div className='login-button'>
                     <a href={'/api/auth/google'}>Login with Google</a>

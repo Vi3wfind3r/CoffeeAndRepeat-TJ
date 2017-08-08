@@ -1,16 +1,10 @@
 import React from 'react';
 import * as Cookies from 'js-cookie';
 
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import LoginPage from './login-page';
 
-export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentUser: null
-        };
-    }
+export class App extends React.Component {
 
     componentDidMount() {
         // Job 4: Redux-ify all of the state and fetch calls to async actions.
@@ -42,14 +36,13 @@ export default class App extends React.Component {
     }
 
     render() {
-        // if (!this.state.currentUser) {
-        //     return <LoginPage />;
-        // }
 
         return <LoginPage />;
     }
 }
 
-// const mapStateToProps = state => ({
-//     currentUser: state.currentUser
-// });
+const mapStateToProps = state => ({
+    currentUser: state.currentUser
+});
+
+export default connect(mapStateToProps)(App);

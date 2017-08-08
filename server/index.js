@@ -85,7 +85,7 @@ app.get('/api/auth/google/callback',
         }}, {upsert: true, new: true})
         .then(user => {
           res.cookie('accessToken', req.user.accessToken, {expires: 0});
-          res.redirect('/questions');
+          res.redirect('/question');
         });
     }
 );

@@ -4,6 +4,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const {Users, Questions} = require('./models');
 
@@ -23,6 +24,7 @@ const app = express();
 const database = { 
 };
 
+app.use(bodyParser.json());
 app.use(passport.initialize());
 
 passport.use(
@@ -118,7 +120,19 @@ app.get('/api/questions',
 );
 
 app.post('/api/questions', (req, res) => {
-
+  console.log(req.body);
+  return Questions
+  .create({
+    question: req.body.question,
+    answer: req.body.answer
+  })
+  .then(() => {
+    Questions
+    .find()
+    .then(questions => {
+      res.send(questions);
+    });
+  });
 });
 
 // Serve the built client

@@ -5,7 +5,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
 
-const {User} = require('./models');
+const {Users} = require('./models');
 
 let secret = {
   CLIENT_ID: process.env.CLIENT_ID,
@@ -40,7 +40,8 @@ passport.use(
         googleId: profile.id,
         accessToken: accessToken,
         firstName: profile.name.givenName,
-        lastName: profile.name.familyName
+        lastName: profile.name.familyName,
+        token: accessToken
       };
 
       return cb(null, user);
@@ -53,10 +54,13 @@ passport.use(
             // Job 3: Update this callback to try to find a user with a
             // matching access token.  If they exist, let em in, if not,
             // don't.
-          if (!(token in database)) {
-            return done(null, false);
-          }
-          return done(null, database[token]);
+          Users.findOne({token: token})
+          .then(user => {
+            if(!user){
+              return done(null, false);
+            }
+            return done(null, user);
+          });
         }
     )
 );
@@ -72,23 +76,19 @@ app.get('/api/auth/google/callback',
       session: false
     }),
     (req, res) => {
-      res.cookie('accessToken', req.user.accessToken, {expires: 0});
-      res.redirect('/');
-      console.log('####',User.findOne({id: req.user.googleId}));//need to update to a then
-      if(User.find({id: req.user.googleId}).length === 0){
-        User.findOneAndUpdate({id: req.user.googleId},
-          {$set: {
+      Users.findOneAndUpdate({id: req.user.googleId},
+        {$set: {
           firstName: req.user.firstName,
           lastName: req.user.lastName,
-          id: req.user.googleId
-        }});
-      }
+          id: req.user.googleId,
+          token: req.user.accessToken
+        }}, {upsert: true, new: true}).then(user => {
+          res.cookie('accessToken', req.user.accessToken, {expires: 0});
+          res.redirect('/');
+        });
     }
 );
 
-// app.get('/success', (req, res) => {
-//     console.log(req.user);
-// });
 
 app.get('/api/auth/logout', (req, res) => {
   req.logout();
@@ -99,7 +99,6 @@ app.get('/api/auth/logout', (req, res) => {
 app.get('/api/me',
     passport.authenticate('bearer', {session: false}),
     (req, res) => {
-      console.log(req.user);
       Users.find()
       .then(user => {
         console.log(user);

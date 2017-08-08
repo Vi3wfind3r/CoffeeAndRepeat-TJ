@@ -42,11 +42,11 @@ class App extends React.Component {
     }
 
     render() {
-        if (!this.state.currentUser) {
-            return <LoginPage />;
-        }
+        // if (!this.state.currentUser) {
+        //     return <LoginPage />;
+        // }
 
-        return <QuestionPage />;
+        return <LoginPage />;
     }
 }
 

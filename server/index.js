@@ -82,7 +82,8 @@ app.get('/api/auth/google/callback',
           lastName: req.user.lastName,
           id: req.user.googleId,
           token: req.user.accessToken
-        }}, {upsert: true, new: true}).then(user => {
+        }}, {upsert: true, new: true})
+        .then(user => {
           res.cookie('accessToken', req.user.accessToken, {expires: 0});
           res.redirect('/');
         });
@@ -103,7 +104,7 @@ app.get('/api/me',
       .then(user => {
         console.log(user);
       });
-});
+    });
 
 
 app.get('/api/questions',

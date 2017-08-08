@@ -25,11 +25,8 @@
     "express": "^4.14.1",
     "http-proxy-middleware": "^0.17.3",
     "npm-run-all": "^4.0.1",
-<<<<<<< HEAD
     "redux": "^3.7.2",
-=======
     "react-redux": "^5.0.5",
->>>>>>> master
     "xp": "^1.0.1"
   }
 }

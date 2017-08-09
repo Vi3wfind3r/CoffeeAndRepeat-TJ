@@ -12,7 +12,7 @@ export default class EndScreen extends React.Component {
           <p>You're Finished!</p>
         </div>
         <div className="end-screen-buttons">
-          <Link to='/'>
+          <Link to='/questions'>
             <button className="start-over">Start New Session</button>
           </Link>
           <Link to='/reading'>

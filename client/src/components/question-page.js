@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Cookies from 'js-cookie';
 import * as actions from '../actions';
 import Navbar from './navbar';
 import './question-page.css';
@@ -14,14 +13,6 @@ export class QuestionPage extends React.Component {
             feedback: null,
             input: true
         };
-    }
-
-    componentDidMount() {
-        const accessToken = Cookies.get('accessToken');
-        if (accessToken) {
-            this.props.dispatch(actions.getUsers(accessToken));
-            this.props.dispatch(actions.fetchQuestions())
-        }
     }
 
     correctQuestion(e) {

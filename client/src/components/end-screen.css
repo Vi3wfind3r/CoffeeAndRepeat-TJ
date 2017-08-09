@@ -1,0 +1,11 @@
+.end-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end-screen-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

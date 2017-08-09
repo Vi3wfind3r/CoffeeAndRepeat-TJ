@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './navbar';
+import './end-screen.css';
 import {Link} from 'react-router-dom';
 
 export default class EndScreen extends React.Component {
@@ -14,7 +15,9 @@ export default class EndScreen extends React.Component {
           <Link to='/'>
             <button className="start-over">Start New Session</button>
           </Link>
+          <Link to='/reading'>
             <button className="review">Review</button>
+          </Link>
         </div>
       </div>
     )

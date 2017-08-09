@@ -21,8 +21,6 @@ if(process.env.NODE_ENV != 'production') {
 const app = express();
 
 
-const database = { 
-};
 
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -38,7 +36,7 @@ passport.use(
         // google id, and the access token
         // Job 2: Update this callback to either update or create the user
         // so it contains the correct access token
-      const user = database[accessToken] = {
+      const user = {
         googleId: profile.id,
         accessToken: accessToken,
         firstName: profile.name.givenName,
@@ -104,7 +102,7 @@ app.get('/api/me',
     (req, res) => {
       Users.findOne({token: req.user.token})
       .then(user => {
-        console.log(user);
+        console.log('This user just got some information about itself: ', user);
         res.status(200).send(user);
       })
       .catch(err => {
@@ -116,8 +114,15 @@ app.get('/api/me',
 
 app.get('/api/questions',
     passport.authenticate('bearer', {session: false}),
-    (req, res) => res.json(['Question 1', 'Question 2'])
-);
+    (req, res) => {
+      Questions.find()
+      .then(questions => {
+        res.json(questions); 
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    });
 
 app.post('/api/questions', (req, res) => {
   console.log(req.body);

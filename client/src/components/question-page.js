@@ -11,7 +11,8 @@ export class QuestionPage extends React.Component {
 
         this.state = {
             feedback: null,
-            input: true
+            input: true,
+            showAnswer: false
         };
     }
 
@@ -29,8 +30,16 @@ export class QuestionPage extends React.Component {
         this.props.dispatch(actions.insertQuestion());
         this.setState({
             feedback: null,
-            input: true
+            input: true,
+            showAnswer: false
         }); 
+    }
+
+    showAnswer(e) {
+        e.preventDefault();
+        this.setState({
+            showAnswer: true
+        })
     }
 
     onSubmitAnswer(e) {
@@ -42,19 +51,12 @@ export class QuestionPage extends React.Component {
         let correctAnswer = this.props.questions.get(0).answer.toLowerCase();
         this.userInput.value = '';
         if(userAnswer === correctAnswer) {
-            this.setState({feedback: <div className="correct-answer">
-                        <p>Correct!</p>
-                        <button onClick={(e) => this.correctQuestion(e)} className="next-question">Next Question</button>
-                     </div>
-            });
-           
+            this.setState({
+                feedback: 'correct'
+            })
         } else { 
             this.setState({
-                feedback: <div className="incorrect-answer">
-                        <p>Incorrect</p>
-                        <button className="show-answer">Show Answer</button>
-                        <button onClick={(e) => this.incorrectQuestion(e)} className="next-question">Next Question</button>
-                    </div>
+                feedback: 'incorrect'
             })
         }
     }
@@ -62,9 +64,24 @@ export class QuestionPage extends React.Component {
     render() {
         let question;
         let input;
+        let answer;
+        let feedback;
 
         if(this.props.endScreen) {
             return <Redirect to="/end-screen"/>
+        }
+
+        if(this.state.feedback === 'correct') {
+            feedback = <div className="correct-answer">
+                         <p>Correct!</p>
+                         <button onClick={(e) => this.correctQuestion(e)} className="next-question">Next Question</button>
+                      </div>
+        } else if (this.state.feedback === 'incorrect') {
+            feedback = <div className="incorrect-answer">
+                         <p>Incorrect</p>
+                         <button onClick={(e) => this.showAnswer(e)} className="show-answer">Show Answer</button>
+                         <button onClick={(e) => this.incorrectQuestion(e)} className="next-question">Next Question</button>
+                     </div>
         }
 
         if(this.props.questions.head) {
@@ -77,6 +94,13 @@ export class QuestionPage extends React.Component {
                         <button onClick={(e) => this.onSubmitAnswer(e)} className="submit-answer">Submit</button>
                     </ul>;
         }
+
+        if(this.state.showAnswer) {
+            answer =  <p className="answer">
+                        {this.props.questions.get(0).answer.toLowerCase()}
+                    </p>;
+        }
+
         return (
             <div>
                 <Navbar />
@@ -88,7 +112,8 @@ export class QuestionPage extends React.Component {
                     </ul>
                     {input}
                 </div>
-                {this.state.feedback}
+                {feedback}
+                {answer}
             </div>
         );
     }

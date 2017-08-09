@@ -1,14 +1,9 @@
 import * as Cookies from 'js-cookie';
 
-export const DISPLAY_QUESTION = 'DISPLAY_QUESTION';
-export const displayQuestion = (questions) => ({
-  type: DISPLAY_QUESTION,
+export const SET_QUESTIONS = 'SET_QUESTIONS';
+export const setQuestions = (questions) => ({
+  type: SET_QUESTIONS,
   questions
-});
-
-export const NEXT_QUESTION = 'NEXT_QUESTION';
-export const nextQuestion = () => ({
-  type: NEXT_QUESTION
 });
 
 export const SET_USER = 'SET_USER';
@@ -17,7 +12,15 @@ export const setUser = (user) => ({
   currentUser: user
 });
 
+export const REMOVE_QUESTION = 'REMOVE_QUESTION';
+export const removeQuestion = () => ({
+  type: REMOVE_QUESTION
+});
 
+export const INSERT_QUESTION = 'INSERT_QUESTION';
+export const insertQuestion = () => ({
+  type: INSERT_QUESTION
+});
 
 //Async actions//
 export const getUsers = (token) => dispatch => {
@@ -54,7 +57,7 @@ export const fetchQuestions = () => dispatch => {
     return res.json();
   })
   .then(questions => {
-    return dispatch(displayQuestion(questions));
+    return dispatch(setQuestions(questions));
   })
   .catch(err => {
     console.error(`Fetch Questions Error: ${err}`);

@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import {SET_USER} from './actions';
 
 const initialState = {
   questions:[],
@@ -7,10 +7,9 @@ const initialState = {
 
 export default (state=initialState, action)  => {
   switch(action.type) {
-    case actions.setUser: 
-      return {
-        ...state, currentUser: action.user
-      };
+    case SET_USER: 
+    console.log('reducer action user', action.currentUser);
+      return Object.assign({}, state, {currentUser: action.currentUser});
 
     default: 
       return state;

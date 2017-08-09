@@ -1,5 +1,11 @@
 import * as Cookies from 'js-cookie';
 
+export const DISPLAY_QUESTION = 'DISPLAY_QUESTION';
+export const displayQuestion = (questions) => ({
+  type: DISPLAY_QUESTION,
+  questions
+});
+
 export const NEXT_QUESTION = 'NEXT_QUESTION';
 export const nextQuestion = () => ({
   type: NEXT_QUESTION
@@ -36,5 +42,21 @@ export const getUsers = (token) => dispatch => {
   })
   .catch(error => {
     console.error(error);
+  })
+}
+
+export const fetchQuestions = () => dispatch => {
+  return fetch('/api/questions')
+  .then(res => {
+    if(!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
+  .then(questions => {
+    return dispatch(displayQuestion(questions));
+  })
+  .catch(err => {
+    console.error(`Fetch Questions Error: ${err}`);
   })
 }

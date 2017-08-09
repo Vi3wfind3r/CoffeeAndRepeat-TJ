@@ -6,43 +6,60 @@ import './question-page.css';
 import {connect} from 'react-redux';
 
 export class QuestionPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            feedback: null
+        };
+    }
 
     componentDidMount() {
         const accessToken = Cookies.get('accessToken');
-        console.log(accessToken);
         if (accessToken) {
             this.props.dispatch(actions.getUsers(accessToken));
-            console.log(this.props.state);
+        }
+    }
+
+    onSubmitAnswer(e) {
+        e.preventDefault();
+        let userAnswer = this.userInput.value.toLowerCase();
+        let correctAnswer = this.props.questions[this.props.index].answer;
+        this.userInput.value = '';
+        if(userAnswer === correctAnswer) {
+            this.setState({feedback: <div className="correct-answer">
+                        <p>Correct!</p>
+                        <button className="next-question">Next Question</button>
+                     </div>
+            })
+        } else { 
+            this.setState({
+                feedback: <div className="incorrect-answer">
+                        <p>Incorrect</p>
+                        <button className="show-answer">Show Answer</button>
+                        <button className="next-question">Next Question</button>
+                    </div>
+            })
         }
     }
 
     render() {
-        const questions = this.props.questions.map((question, index) =>
-            <li key={index}>{question}</li>
-        );
-
         return (
             <div>
                 <Navbar />
                 <div className="question-box">
                     <ul className="question-list">
-                        {questions}
+                        <li>
+                            {this.props.questions[this.props.index].question}
+                        </li>
                     </ul>
                     <ul className="answer-section">
                         <label>Answer</label>
-                        <input className="answer-input" placeholder="E.g. coffee" type="text"></input>
-                        <button className="submit-answer">Submit</button>
+                        <input ref={(value) => this.userInput = value} className="answer-input" placeholder="E.g. coffee" type="text"></input>
+                        <button onClick={(e) => this.onSubmitAnswer(e)} className="submit-answer">Submit</button>
                     </ul>
                 </div>
-                <div className="correct-answer">
-                    <p>Correct!</p>
-                    <button className="next-question">Next Question</button>
-                </div>
-                <div className="incorrect-answer">
-                    <p>Incorrect</p>
-                    <button className="show-answer">Show Answer</button>
-                    <button className="next-question">Next Question</button>
-                </div>
+                {this.state.feedback}
             </div>
         );
     }
@@ -51,7 +68,8 @@ export class QuestionPage extends React.Component {
 const mapStateToProps = (state, props) => ({
     currentUser: state.currentUser,
     state: state,
-    questions: state.questions
+    questions: state.questions,
+    index: state.index
 });
 
 export default connect(mapStateToProps)(QuestionPage);

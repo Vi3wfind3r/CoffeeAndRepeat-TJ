@@ -1,6 +1,7 @@
 import React from 'react';
 import App from './app';
 import QuestionPage from './question-page';
+import EndScreen from './end-screen';
 import {Route} from 'react-router-dom';
 
 export default class MainPage extends React.Component {
@@ -9,6 +10,7 @@ export default class MainPage extends React.Component {
       <div>
         <Route exact path="/" component={App}/>
         <Route exact path="/questions" component={QuestionPage}/>
+        <Route exact path="/end-screen" component={EndScreen}/>
       </div>
     )
   }

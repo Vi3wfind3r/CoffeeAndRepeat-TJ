@@ -4,6 +4,7 @@ import * as actions from '../actions';
 import Navbar from './navbar';
 import './question-page.css';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 export class QuestionPage extends React.Component {
     constructor(props) {
@@ -70,6 +71,11 @@ export class QuestionPage extends React.Component {
     render() {
         let question;
         let input;
+
+        if(this.props.endScreen) {
+            return <Redirect to="/end-screen"/>
+        }
+
         if(this.props.questions.head) {
             question = this.props.questions.get(0).question;
         }
@@ -101,6 +107,7 @@ const mapStateToProps = (state, props) => ({
     currentUser: state.currentUser,
     state: state,
     questions: state.questions,
+    endScreen: state.endScreen
 });
 
 export default connect(mapStateToProps)(QuestionPage);

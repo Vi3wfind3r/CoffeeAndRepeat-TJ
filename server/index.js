@@ -4,8 +4,9 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-const {Users} = require('./models');
+const {Users, Questions} = require('./models');
 
 let secret = {
   CLIENT_ID: process.env.CLIENT_ID,
@@ -23,6 +24,7 @@ const app = express();
 const database = { 
 };
 
+app.use(bodyParser.json());
 app.use(passport.initialize());
 
 passport.use(
@@ -100,8 +102,9 @@ app.get('/api/auth/logout', (req, res) => {
 app.get('/api/me',
     passport.authenticate('bearer', {session: false}),
     (req, res) => {
-      Users.find()
+      Users.findOne({token: req.user.token})
       .then(user => {
+        console.log(user);
         res.status(200).send(user);
       })
       .catch(err => {
@@ -115,6 +118,22 @@ app.get('/api/questions',
     passport.authenticate('bearer', {session: false}),
     (req, res) => res.json(['Question 1', 'Question 2'])
 );
+
+app.post('/api/questions', (req, res) => {
+  console.log(req.body);
+  return Questions
+  .create({
+    question: req.body.question,
+    answer: req.body.answer
+  })
+  .then(() => {
+    Questions
+    .find()
+    .then(questions => {
+      res.send(questions);
+    });
+  });
+});
 
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));

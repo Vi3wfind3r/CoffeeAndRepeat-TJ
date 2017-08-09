@@ -1,6 +1,5 @@
 import React from 'react';
 import './navbar.css';
-import {Link} from 'react-router-dom';
 
 export default class Navbar extends React.Component {
   
@@ -8,10 +7,8 @@ export default class Navbar extends React.Component {
     return (
       <nav>
         <ul className='navbar'>
-          <li>Hello !</li>
-          <Link to='/api/auth/logout' style={{textDecoration: "none"}}>
-            <li>Logout</li>
-          </Link>
+          <li className="greeting">Hello !</li>
+          <li className="logout"><a href="/api/auth/logout">Logout</a></li>
         </ul>
       </nav>
     );

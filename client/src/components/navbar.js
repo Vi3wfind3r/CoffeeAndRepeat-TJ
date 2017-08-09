@@ -1,4 +1,6 @@
 import React from 'react';
+// import {connect} from 'react-redux';
+
 import './navbar.css';
 
 export default class Navbar extends React.Component {
@@ -14,3 +16,9 @@ export default class Navbar extends React.Component {
     );
   }
 }
+
+// const mapStateToProps = state => ({
+
+// });
+
+// export default connect(mapStateToProps)(Navbar);

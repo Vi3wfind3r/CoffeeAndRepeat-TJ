@@ -3,6 +3,7 @@ import * as Cookies from 'js-cookie';
 
 import {connect} from 'react-redux';
 import LoginPage from './login-page';
+import * as actions from '../actions';
 
 export class App extends React.Component {
 
@@ -17,8 +18,6 @@ export class App extends React.Component {
             }).then(res => {
                 if (!res.ok) {
                     if (res.status === 401) {
-                        // Unauthorized, clear the cookie and go to
-                        // the login page
                         Cookies.remove('accessToken');
                         return;
                     }
@@ -27,9 +26,7 @@ export class App extends React.Component {
                 return res.json();
             }).then(currentUser =>{
                 console.log(currentUser);
-                this.setState({
-                    currentUser
-                })
+                actions.setUser(currentUser);
             }
             );
         }

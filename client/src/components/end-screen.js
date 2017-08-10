@@ -9,7 +9,7 @@ export default class EndScreen extends React.Component {
       <div>
         <Navbar />
         <div className="end-message">
-          <p>You're Finished!</p>
+          <p className="finished wow zoomInUp">You're Finished!</p>
         </div>
         <div className="end-screen-buttons">
           <Link to='/questions'>

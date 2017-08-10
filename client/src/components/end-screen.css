@@ -1,0 +1,36 @@
+.end-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.finished {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.end-screen-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.start-over {
+  background: #5BC3EB;
+  border-radius: 25%;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  margin-top: 10px;
+}
+
+.review {
+  background: #36382E;
+  border-radius: 25%;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+}

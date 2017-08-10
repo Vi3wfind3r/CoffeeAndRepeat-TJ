@@ -10,9 +10,29 @@
 
 .reading {
   border: 1px solid black;
-  padding: 20px;
+  padding: 30px;
   background: #EDE6E3;
   box-shadow: 2px 2px 1px lightgrey;
+  line-height: 30px;
+}
+
+.reading-opening {
+  font-size: 26px;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+hr {
+  background: black;
+  height: 2px;
+  border: none;
+}
+
+.reading-ending {
+  font-size: 20px;
+  margin-top: 40px;
 }
 
 .test-button {
@@ -23,5 +43,6 @@
   font-size: 16px;
   border: none;
   margin-top: 20px;
+  margin-bottom: 100px;
   box-shadow: 2px 2px 1px lightgray;
 }

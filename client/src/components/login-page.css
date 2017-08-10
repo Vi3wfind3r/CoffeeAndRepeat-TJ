@@ -21,18 +21,16 @@
   margin-bottom: 0px;
 }
 
-.app-name {
-  font-size: 26px;
-  text-shadow: 3px 1px 1px #ce5e40;
-}
-
 .app-description {
   text-shadow: 1px 1px 1px #ce5e40;
   margin-bottom: 48px;
+  margin-top: 30px;
+  font-size: 18px;
+  width: 50%;
 }
 
 .login-button {
-  margin-top: 100px;
+  margin-top: 70px;
   box-shadow: 5px 25px 20px lightgrey;
 }
 

@@ -72,7 +72,7 @@ export class QuestionPage extends React.Component {
         }
 
         if(this.state.feedback === 'correct') {
-            feedback = <div className="correct-answer">
+            feedback = <div className="correct-answer wow slideInDown">
                          <p>Correct!</p>
                          <button onClick={(e) => this.correctQuestion(e)} className="next-question">Next Question</button>
                       </div>

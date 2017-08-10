@@ -10,9 +10,14 @@
 
 .reading {
   border: 1px solid black;
-  padding: 20px;
+  padding: 30px;
   background: #EDE6E3;
   box-shadow: 2px 2px 1px lightgrey;
+  line-height: 30px;
+}
+
+.reading-opening {
+  font-size: 26px;
 }
 
 .test-button {

@@ -3,7 +3,8 @@ import {
   SET_QUESTIONS,
   REMOVE_QUESTION,
   INSERT_QUESTION,
-  TRACK_INCORRECT
+  TRACK_INCORRECT,
+  START_NEW_GAME
 } from "./actions";
 import LinkedList from "./linkedlist";
 
@@ -15,6 +16,7 @@ const initialState = {
   currentUser: null,
   index: 0,
   endScreen: false,
+  // endScreen: true,
   incorrectQuestions: []
 };
 
@@ -35,7 +37,6 @@ export default (state = initialState, action) => {
 
     case REMOVE_QUESTION:
       questionsList.remove(0);
-      console.log("##LENGTH", questionsList.length);
       if (!questionsList.length) {
         return {
           ...state,
@@ -75,6 +76,11 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         incorrectQuestions: newIncorrectQuestions
       });
+
+    case START_NEW_GAME:
+      return {
+        ...state, endScreen: false
+      }
 
     default:
       return state;

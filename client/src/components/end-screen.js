@@ -4,8 +4,16 @@ import './end-screen.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-export default class EndScreen extends React.Component {
+export class EndScreen extends React.Component {
   render() {
+    let incorrectQuestions = this.props.incorrectQuestions.map((el, index) => {
+      return <li key={index}>
+              <p>{el.question}</p>
+              <p>{el.answer}</p>
+              <p>You missed this {el.count} times</p>
+            </li>
+    });
+
     return (
       <div>
         <Navbar />
@@ -20,7 +28,18 @@ export default class EndScreen extends React.Component {
             <button className="review">Review</button>
           </Link>
         </div>
+        <div>
+          <ul>
+            {incorrectQuestions}
+          </ul>
+        </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  incorrectQuestions: state.incorrectQuestions
+});
+
+export default connect(mapStateToProps)(EndScreen);

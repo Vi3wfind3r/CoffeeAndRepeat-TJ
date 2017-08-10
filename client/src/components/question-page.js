@@ -72,12 +72,12 @@ export class QuestionPage extends React.Component {
         }
 
         if(this.state.feedback === 'correct') {
-            feedback = <div className="correct-answer wow slideInDown" data-wow-duration="1s">
+            feedback = <div className="correct-answer wow bounceIn" data-wow-duration="1s">
                          <p>Correct!</p>
                          <button onClick={(e) => this.correctQuestion(e)} className="next-question">Next Question</button>
                       </div>
         } else if (this.state.feedback === 'incorrect') {
-            feedback = <div className="incorrect-answer wow slideInDown" data-wow-duration="1s">
+            feedback = <div className="incorrect-answer wow fadeIn" data-wow-duration="2s">
                          <p>Incorrect</p>
                          <button onClick={(e) => this.showAnswer(e)} className="show-answer">Show Answer</button>
                          <button onClick={(e) => this.incorrectQuestion(e)} className="next-question">Next Question</button>
@@ -96,7 +96,7 @@ export class QuestionPage extends React.Component {
         }
 
         if(this.state.showAnswer) {
-            answer =  <p className="answer wow zoomInDown" data-wow-duration="1s">
+            answer =  <p className="answer wow zoomInDown">
                         {this.props.questions.get(0).answer.toLowerCase()}
                     </p>;
         }

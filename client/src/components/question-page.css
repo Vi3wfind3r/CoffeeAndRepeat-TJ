@@ -1,10 +1,11 @@
 .question-list {
   list-style: none;
+  padding-left: 0px;
 }
 
 .question-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border: 1px solid #36382E;
   width: 60%;
   margin: auto;
@@ -18,7 +19,6 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   margin-top: 30px;
-  
 }
 
 .answer-section {
@@ -26,12 +26,15 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  padding-left: 0px;
 }
 
 .answer-section > input {
   padding: 10px;
   margin: 10px 10px;
-  width: 100%;
+  width: 90%;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .answer-section input::placeholder {
@@ -43,9 +46,10 @@
   border-radius: 25%;
   padding: 10px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   box-shadow: 2px 2px 2px #DADAD9;
+  margin-top: 15px;
 }
 
 .incorrect-answer {
@@ -54,26 +58,27 @@
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   color: red;
-  font-size: 20px;
+  font-size: 26px;
+  margin-top: 20px;
 }
 
 .show-answer {
   background: #36382E;
   border-radius: 25%;
-  padding: 10px;
+  padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
+  margin-bottom: 30px;
 }
 
 .next-question {
   background: #5BC3EB;
   border-radius: 25%;
-  padding: 10px;
+  padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
-  margin-top: 10px;
 }
 
 .answer {
@@ -82,6 +87,8 @@
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   color: green;
+  font-size: 20px;
+  margin-top: 25px;
 }
 
 .correct-answer {
@@ -90,5 +97,6 @@
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   color: green;
-  font-size: 20px;
+  font-size: 26px;
+  margin-top: 20px;
 }

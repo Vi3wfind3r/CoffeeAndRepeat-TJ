@@ -20,6 +20,21 @@
   font-size: 26px;
 }
 
+.subtitle {
+  font-size: 20px;
+}
+
+hr {
+  background: black;
+  height: 2px;
+  border: none;
+}
+
+.reading-ending {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
 .test-button {
   background: #5BC3EB;
   border-radius: 25%;
@@ -28,5 +43,6 @@
   font-size: 16px;
   border: none;
   margin-top: 20px;
+  margin-bottom: 100px;
   box-shadow: 2px 2px 1px lightgray;
 }

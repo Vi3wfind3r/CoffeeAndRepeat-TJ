@@ -12,8 +12,14 @@
   border: 1px solid black;
   padding: 30px;
   background: #EDE6E3;
-  box-shadow: 2px 2px 1px lightgrey;
+  /*box-shadow: 2px 2px 1px lightgrey;*/
   line-height: 30px;
+      /*position:fixed;*/
+    /*border-left:1px solid black;
+    border-bottom:1px solid black;*/
+    height: 600px;
+    overflow:scroll;
+    /*scrollbar-face-color:red;*/
 }
 
 .reading-opening {

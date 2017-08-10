@@ -5,7 +5,14 @@
   font-family: 'Montserrat', sans-serif;
   width: 70%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 40px;
+}
+
+.reading {
+  border: 1px solid black;
+  padding: 20px;
+  background: #EDE6E3;
+  box-shadow: 2px 2px 1px lightgrey;
 }
 
 .test-button {
@@ -16,5 +23,5 @@
   font-size: 16px;
   border: none;
   margin-top: 20px;
-  box-shadow: 2px 2px 10px lightgray;
+  box-shadow: 2px 2px 1px lightgray;
 }

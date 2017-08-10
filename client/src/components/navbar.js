@@ -5,14 +5,14 @@ import * as Cookies from "js-cookie";
 import "./navbar.css";
 
 export class Navbar extends React.Component {
-  componentDidMount() {
-    const accessToken = Cookies.get("accessToken");
-    console.log(this.props.questions.length === 0);
-    if (accessToken && !this.props.questions.length) {
-      this.props.dispatch(actions.getUsers(accessToken));
-      this.props.dispatch(actions.fetchQuestions());
-    }
-  }
+  // componentDidMount() {
+  //   const accessToken = Cookies.get("accessToken");
+  //   console.log(this.props.questions.length === 0);
+  //   if (accessToken && !this.props.questions.length) {
+  //     this.props.dispatch(actions.getUsers(accessToken));
+  //     this.props.dispatch(actions.fetchQuestions());
+  //   }
+  // }
 
   render() {
     return (

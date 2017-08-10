@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
 
     case SET_QUESTIONS:
       questionsList.transformArr(action.questions, questionsList);
-      console.log("linked list", questionsList);
       return {
         ...state,
         questions: questionsList

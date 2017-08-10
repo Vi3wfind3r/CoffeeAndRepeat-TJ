@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './navbar';
 import './end-screen.css';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 export default class EndScreen extends React.Component {
   render() {

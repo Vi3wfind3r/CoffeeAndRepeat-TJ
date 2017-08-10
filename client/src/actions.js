@@ -22,6 +22,12 @@ export const insertQuestion = () => ({
   type: INSERT_QUESTION
 });
 
+export const TRACK_INCORRECT = 'TRACK_INCORRECT';
+export const trackIncorrect = (question) => ({
+  type: TRACK_INCORRECT,
+  question
+});
+
 //Async actions//
 export const getUsers = (token) => dispatch => {
   const url = '/api/me';

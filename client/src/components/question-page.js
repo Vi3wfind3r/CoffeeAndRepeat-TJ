@@ -57,8 +57,8 @@ export class QuestionPage extends React.Component {
         } else { 
             this.setState({
                 feedback: 'incorrect'
-            })
-
+            });
+            this.props.dispatch(actions.trackIncorrect(this.props.questions.get(0)));
         }
     }
 
@@ -67,6 +67,7 @@ export class QuestionPage extends React.Component {
         let input;
         let answer;
         let feedback;
+        console.log(this.props.incorrectQuestions);
 
         if(this.props.endScreen) {
             return <Redirect to="/end-screen"/>
@@ -124,7 +125,8 @@ const mapStateToProps = (state, props) => ({
     currentUser: state.currentUser,
     state: state,
     questions: state.questions,
-    endScreen: state.endScreen
+    endScreen: state.endScreen,
+    incorrectQuestions: state.incorrectQuestions
 });
 
 export default connect(mapStateToProps)(QuestionPage);

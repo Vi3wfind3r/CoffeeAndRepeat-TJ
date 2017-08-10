@@ -1,4 +1,4 @@
-import {SET_USER, SET_QUESTIONS, REMOVE_QUESTION, INSERT_QUESTION} from './actions';
+import {SET_USER, SET_QUESTIONS, REMOVE_QUESTION, INSERT_QUESTION, TRACK_INCORRECT} from './actions';
 import LinkedList from './linkedlist';
 
 let questionsList = new LinkedList();
@@ -46,6 +46,23 @@ export default (state=initialState, action)  => {
         ...state, questions: questionsList
       }
     
+    case TRACK_INCORRECT:
+      let isThere = false;
+      let newIncorrectQuestions = state.incorrectQuestions.map((el, index) => {
+        if(el.question === action.question.question) {
+          el.count++;
+          isThere = true;
+        }
+          return el;
+      });
+
+        if(!isThere) {
+          newIncorrectQuestions.push({...action.question, count: 1});
+        }      
+      return (
+        Object.assign({}, state, {incorrectQuestions: newIncorrectQuestions})
+      )
+
     default: 
       return state;
   }

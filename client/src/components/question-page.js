@@ -67,7 +67,6 @@ export class QuestionPage extends React.Component {
         let input;
         let answer;
         let feedback;
-        console.log(this.props.incorrectQuestions);
 
         if(this.props.endScreen) {
             return <Redirect to="/end-screen"/>

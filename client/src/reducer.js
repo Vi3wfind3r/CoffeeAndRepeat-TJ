@@ -8,7 +8,8 @@ const initialState = {
   questions: questionsList,
   currentUser: null,
   index: 0,
-  endScreen: false
+  endScreen: false,
+  incorrectQuestions: []
 };
 
 export default (state=initialState, action)  => {

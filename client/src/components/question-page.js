@@ -58,6 +58,7 @@ export class QuestionPage extends React.Component {
             this.setState({
                 feedback: 'incorrect'
             })
+
         }
     }
 

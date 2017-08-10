@@ -38,11 +38,8 @@ export class EndScreen extends React.Component {
             this.props.dispatch(actions.fetchQuestions())
             }
           }>
-            <div>Start New Game</div>
+            <div className="start-over">Start New Game</div>
           </a>
-          {/*<Link to='/questions' className="start-over" onClick={(e) => }>
-            Start New Session
-          </Link>*/}
           <Link to='/reading' className="review">
             Review
           </Link>

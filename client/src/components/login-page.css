@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*color: #ffffff;*/
   color: #301C00;
   margin-top: 90px;
   width: 100%;
@@ -23,7 +22,6 @@
 }
 
 .app-description {
-  /*text-shadow: 1px 1px 1px #301C00;*/
   line-height: 30px;
   margin-bottom: 20px;
   margin-top: 30px;

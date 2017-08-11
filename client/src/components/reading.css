@@ -9,24 +9,27 @@
 }
 
 .reading {
-  border: 1px solid black;
+  border: 2px solid #2F6B3A;
   padding: 30px;
   background: #EDE6E3;
   line-height: 30px;
   height: 600px;
   overflow:scroll;
+  color: #301C00;
 }
 
 .reading-opening {
   font-size: 26px;
+  font-weight: bold;
 }
 
 .subtitle {
   font-size: 20px;
+  font-weight: bold;
 }
 
 hr {
-  background: black;
+  background: #301C00;
   height: 2px;
   border: none;
 }
@@ -34,6 +37,7 @@ hr {
 .reading-ending {
   font-size: 20px;
   margin-top: 40px;
+  font-weight: bold;
 }
 
 .test-button {

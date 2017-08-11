@@ -17,7 +17,7 @@ const initialState = {
   index: 0,
   endScreen: false,
   // endScreen: true,
-  incorrectQuestions: []
+  incorrectQuestions: [{question: 'test question', answer: 'test answer', count: 1}, {question: 'test question', answer: 'test answer', count: 2}]
 };
 
 export default (state = initialState, action) => {

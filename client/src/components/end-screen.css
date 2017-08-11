@@ -59,3 +59,13 @@
   list-style: none;
   font-family: 'Montserrat', sans-serif;
 }
+
+.review-question {
+  font-weight: bold;
+}
+
+.review-answer {
+  color: #2F6B3A;
+  font-weight: bold;
+  font-style: italic;
+}

@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .finished {
@@ -12,8 +13,9 @@
 
 .end-screen-buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   justify-content: space-around;
+  margin-top: 30px;
 }
 
 .start-over {
@@ -25,14 +27,45 @@
   border: none;
   margin-top: 10px;
   text-decoration: none;
+  margin-left: 200px;
 }
 
 .review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #301C00;
   border-radius: 25%;
+  margin-right: 200px;
+  width: 7%;
   padding: 10px;
   color: #ffffff;
   font-size: 14px;
   border: none;
   text-decoration: none;
+}
+
+
+.review-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-section {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.review-question {
+  font-weight: bold;
+}
+
+.review-answer {
+  color: #2F6B3A;
+  font-weight: bold;
+  font-style: italic;
 }

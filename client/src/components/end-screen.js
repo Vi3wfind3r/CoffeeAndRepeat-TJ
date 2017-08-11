@@ -17,11 +17,17 @@ export class EndScreen extends React.Component {
 
 
   render() {
+    let time = '';
     let incorrectQuestions = this.props.incorrectQuestions.map((el, index) => {
+      if(el.count > 1) {
+        time = 'times';
+      } else if (el.count === 1) {
+        time = 'time';
+      }
       return <li key={index}>
-              <p>{el.question}</p>
-              <p>{el.answer}</p>
-              <p>You missed this {el.count} times</p>
+              <p className="review-question">{el.question}</p>
+              <p className="review-answer">{el.answer}</p>
+              <p className="review-count">You missed this {el.count} {time}</p>
             </li>
     });
 
@@ -44,8 +50,8 @@ export class EndScreen extends React.Component {
             Review
           </Link>
         </div>
-        <div>
-          <ul>
+        <div className="review-box">
+          <ul className="review-section">
             {incorrectQuestions}
           </ul>
         </div>

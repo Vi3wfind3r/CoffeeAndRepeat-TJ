@@ -4,9 +4,11 @@ by Tanner Gill and Jamie Wang
 Love coffee? Feel lost in the growing list of fancy java drinks you can order at your local neighborhood hot spot? Welcome to Coffee & Repeat! We will teach you the basic groups of coffee in a super effective way learning: spaced repitition. You will answer a series of questions and incorrect questions will be repeated shortly after you see them to help solidify the knowledge in your brain. You will have a fun time and finish feeling confident when ordering your next cup of joe.
 
 ## Production App 
+
 http://coffee-repeat.herokuapp.com/
 
 ## Technology Used
+
 **FrontEnd**: HTML, CSS, Javascript, React, Redux <br/>
 **BackEnd**: NodeJS, Express, OAuth, MongoDB, Mongoose, Mlab <br/>
 **Deployment**: Heroku <br/> 

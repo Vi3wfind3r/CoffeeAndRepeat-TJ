@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .start-over {
@@ -59,12 +60,12 @@ hr {
 
 .review-section {
   display: flex;
+  flex-direction: column;
+  align-items: left;
   background: #EDE6E3;
   padding-left: 0px;
   padding: 20px;
   border-radius: 4px;
-  flex-direction: column;
-  align-items: left;
   list-style: none;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 100px;

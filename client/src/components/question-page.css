@@ -50,6 +50,7 @@
 
 .submit-answer {
   background: #2F6B3A;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 25%;
   padding: 10px;
   color: #ffffff;
@@ -71,6 +72,7 @@
 
 .show-answer {
   background: #301C00;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 25%;
   padding: 15px;
   color: #ffffff;
@@ -81,6 +83,7 @@
 
 .next-question {
   background: #2F6B3A;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 25%;
   padding: 15px;
   color: #ffffff;

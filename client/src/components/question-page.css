@@ -63,7 +63,6 @@
 }
 
 .show-answer {
-  /*background: #36382E;*/
   background: #301C00;
   border-radius: 25%;
   padding: 15px;
@@ -97,7 +96,7 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  color: green;
+  color: #2F6B3A;
   font-size: 26px;
   margin-top: 20px;
 }

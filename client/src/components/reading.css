@@ -12,14 +12,9 @@
   border: 1px solid black;
   padding: 30px;
   background: #EDE6E3;
-  /*box-shadow: 2px 2px 1px lightgrey;*/
   line-height: 30px;
-      /*position:fixed;*/
-    /*border-left:1px solid black;
-    border-bottom:1px solid black;*/
-    height: 600px;
-    overflow:scroll;
-    /*scrollbar-face-color:red;*/
+  height: 600px;
+  overflow:scroll;
 }
 
 .reading-opening {
@@ -42,8 +37,7 @@ hr {
 }
 
 .test-button {
-  /*background: #B21515;*/
-  background: #78E29A;
+  background: #2F6B3A;
   border-radius: 25%;
   padding: 15px;
   color: #ffffff;

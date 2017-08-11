@@ -98,8 +98,9 @@ export default (state = initialState, action) => {
 
     case START_NEW_GAME:
       return {
-        ...state, endScreen: false
-      }
+        ...state,
+        endScreen: false
+      };
 
     default:
       return state;

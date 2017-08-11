@@ -7,6 +7,8 @@ Love coffee? Feel lost in the growing list of fancy java drinks you can order at
 
 http://coffee-repeat.herokuapp.com/
 
+![Login](README_images/Login.png "Login") <br/>
+
 ## Technology Used
 
 **FrontEnd**: HTML, CSS, Javascript, React, Redux <br/>
@@ -108,6 +110,11 @@ To fix this, go back to the Google API Dashboard and:
 Try to log in  `Log in with Google` again, and you're golden!
 
 ## Screenshots
-### Login
-![Login](README_images/Login.png "Login") <br/>
+### Reading
+![Reading](README_images/Reading.png "Reading") <br/>
 
+### Question
+![Question](README_images/Question.png "Question") <br/>
+
+### Ending
+![Ending](README_images/Ending.png "Ending") <br/>

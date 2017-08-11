@@ -25,10 +25,11 @@ export class EndScreen extends React.Component {
         time = 'time';
       }
       return <li key={index}>
-              <p className="review-question">{el.question}</p>
-              <p className="review-answer">{el.answer}</p>
-              <p className="review-count">You missed this {el.count} {time}</p>
-            </li>
+                <p className="review-question">{el.question}</p>
+                <p className="review-answer">{el.answer}</p>
+                <p className="review-count">You missed this {el.count} {time}</p>
+                <hr className="review-hr"/>
+              </li>
     });
 
     return (
@@ -46,10 +47,11 @@ export class EndScreen extends React.Component {
           }>
             <div className="start-over">Start New Game</div>
           </a>
-          <Link to='/reading' className="review">
-            Review
+          <Link to='/reading' className="review-link">
+            <div className="review">Review</div>
           </Link>
         </div>
+           <hr />
         <div className="review-box">
           <ul className="review-section">
             {incorrectQuestions}

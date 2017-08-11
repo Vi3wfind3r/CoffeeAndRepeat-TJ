@@ -51,12 +51,6 @@ hr {
   width: 50%;
 }
 
-.review-hr {
-  position: absolute;
-  margin: auto;
-  width: 45%;
-}
-
 .review-box {
   display: flex;
   flex-direction: column;
@@ -65,6 +59,10 @@ hr {
 
 .review-section {
   display: flex;
+  background: #EDE6E3;
+  padding-left: 0px;
+  padding: 20px;
+  border-radius: 4px;
   flex-direction: column;
   align-items: left;
   list-style: none;

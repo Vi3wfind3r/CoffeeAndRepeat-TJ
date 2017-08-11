@@ -28,7 +28,6 @@ export class EndScreen extends React.Component {
                 <p className="review-question">{el.question}</p>
                 <p className="review-answer">{el.answer}</p>
                 <p className="review-count">You missed this {el.count} {time}</p>
-                <hr className="review-hr"/>
               </li>
     });
 

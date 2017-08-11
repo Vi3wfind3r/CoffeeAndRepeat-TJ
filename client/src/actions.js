@@ -28,6 +28,11 @@ export const trackIncorrect = (question) => ({
   question
 });
 
+export const START_NEW_GAME = 'START_NEW_GAME';
+export const startNewGame = () => ({
+  type: START_NEW_GAME
+});
+
 //Async actions//
 export const getUsers = (token) => dispatch => {
   const url = '/api/me';

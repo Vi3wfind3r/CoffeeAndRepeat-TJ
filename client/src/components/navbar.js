@@ -1,20 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "../actions";
-import * as Cookies from "js-cookie";
 import "./navbar.css";
 
 export class Navbar extends React.Component {
-  // componentDidMount() {
-  //   const accessToken = Cookies.get("accessToken");
-  //   console.log(this.props.questions.length === 0);
-  //   if (accessToken && !this.props.questions.length) {
-  //     this.props.dispatch(actions.getUsers(accessToken));
-  //     this.props.dispatch(actions.fetchQuestions());
-  //   }
-  // }
-
   render() {
+    console.log('current user', this.props.currentUser);
     return (
       <nav>
         <ul className="navbar">

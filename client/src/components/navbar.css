@@ -5,22 +5,23 @@
   justify-content: space-between;
   margin: 0;
   padding: 30px;
-  background: #F06449;
   color: #FFFFFF;
   font-family: 'Lato', sans-serif;
 }
 
 .greeting {
-  text-shadow: 1px 1px 1px #ce5e40;
-  font-size: 18px;
+  text-shadow: 1px 1px 1px #38230A;
+  font-size: 22px;
 }
 
 .logout > a {
   text-decoration: none;
   color: #FFFFFF;
-  background: #5BC3EB;
+  font-size: 18px;
+  background: #2F6B3A;
+  letter-spacing: 0.5px;
   border-radius: 25%;
   padding: 10px;
-  box-shadow: 3px 3px 3px #ce5e40;
+  box-shadow: 3px 3px 3px #38230A;
 }
 

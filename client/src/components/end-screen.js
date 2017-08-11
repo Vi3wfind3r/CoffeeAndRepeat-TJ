@@ -1,10 +1,21 @@
 import React from 'react';
 import Navbar from './navbar';
 import './end-screen.css';
-import {Link} from 'react-router-dom';
+import {Link,  withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import * as actions from '../actions';
+import * as Cookies from "js-cookie";
 
 export class EndScreen extends React.Component {
+
+  componentDidMount() {
+    const accessToken = Cookies.get("accessToken");
+    if (accessToken) {
+      this.props.dispatch(actions.getUsers(accessToken));
+    }
+  }
+
+
   render() {
     let incorrectQuestions = this.props.incorrectQuestions.map((el, index) => {
       return <li key={index}>
@@ -21,11 +32,16 @@ export class EndScreen extends React.Component {
           <p className="finished wow zoomInUp">You're Finished!</p>
         </div>
         <div className="end-screen-buttons">
-          <Link to='/questions'>
-            <button className="start-over">Start New Session</button>
-          </Link>
-          <Link to='/reading'>
-            <button className="review">Review</button>
+          <a onClick={() => {
+            this.props.dispatch(actions.startNewGame())
+            this.props.history.push(`/questions`) 
+            this.props.dispatch(actions.fetchQuestions())
+            }
+          }>
+            <div className="start-over">Start New Game</div>
+          </a>
+          <Link to='/reading' className="review">
+            Review
           </Link>
         </div>
         <div>

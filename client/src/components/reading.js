@@ -22,7 +22,7 @@ export class Reading extends React.Component {
         <div className="reading-box">
           <p className="reading">
             <p className="reading-opening">
-              So you want to know more about coffee?
+              So you want to know more about coffee? 
             </p>
             <p />
             Ever feel intimidated by what you see in on the menu at the super
@@ -109,17 +109,23 @@ export class Reading extends React.Component {
             most basic level, is simple: you put ground coffee in a filter above
             a cup or serving carafe, and pour hot water over the top to brew an
             individual cup of coffee. This is heavily expanded upon in the 3rd
-            wave (hipster) coffee scene. To begin, the barista grinds the beans
+            wave (hipster) coffee scene. 
+            <p />
+
+            To begin, the barista grinds the beans
             fresh (always do this if possible). The barista then places a filter
             inside a specialty container (which go by many different names, the
-            most common being V60s, Kalitas, and Chemexs), and then rinse the
+            most common being V60s, Kalitas, and Chemexs), and then rinses the
             paper filter with hot water. This process removes any unwanted
-            material from the filter, most commonly a distinct bleach like smell
+            material from the filter and releases a distinct bleach like smell
             (seriously, if you ever ask a barista to allow you to smell the
             water that comes out of that thing, you may never want to drink
             coffee that didn’t use a rinsed filter). From there, the barista
-            pours the grinds that were just ground into the filter, keeping an
-            eye on the weight. In coffee preparation, weight and time are
+            pours the fresh grinds into the filter, keeping an
+            eye on the weight. 
+            <p />
+            
+            In coffee preparation, weight and time are
             crucial (If you ever order a pour over at a cafe and they aren’t
             using a scale of some kind, this should be a red flag). They then
             pour between 30-50 grams of water on the bed of coffee, and pause
@@ -148,7 +154,7 @@ export class Reading extends React.Component {
             the menu, but it was a hit and the drink made its way to the United
             States, where it was become a staple on the menu ever since. The
             drink is straightforward with several shots of espresso mixed into a
-            glass of hot water.
+            glass of hot water. 
             <p />
             <hr />
             <p className="reading-ending">Ready to test your knowledge?</p>
